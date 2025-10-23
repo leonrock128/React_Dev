@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="App.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="cont"></div>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script type="text/babel">
+
+        function ChatInput({onSend}){
+            const [inp,setInp] = React.useState('');
+            
+            function sendMsg(){
+                if(inp.trim()==="") return;
+                
+                onSend(inp)
+                console.log(inp);
+                setInp('');
+            }
+        
+            return (
+                <>
+                    <input type="text" id="inp" placeholder="Send a message" onChange={(e)=>setInp(e.target.value)} value={inp} />
+                    <button className="cart-btn" onClick={sendMsg}> Send </button>
+                </>
+            );
+        
+        }
+        function ChatList({messages}){
+            return (
+                <div>
+                    <h2>WhiteBoard</h2>
+                    {messages.map((msg,i)=>(
+                        <p key={i}>{msg}</p>
+                    ))}
+                </div>
+            );
+        }
+        
+        function App(){
+            const [msg,setMsg] = React.useState([]);
+            function addMsg(newMsg){
+                if(newMsg.trim()==='') return;
+                setMsg([...msg,newMsg]);
+                // console.log(msg);
+            }
+            
+            return (
+                <> 
+                    <ChatInput onSend={addMsg} />
+                    <ChatList messages={msg} />
+                </>
+            );
+        }
+        // function Sedf(){
+        //     msg.push({
+        //         message:'New message',
+        //         sender:'user',
+        //         id:crypto.randomUUID()
+        //     });
+        //     console.log(msg);
+        // }
+        // function Cht(props){
+        //     return (
+        //         <>
+        //             <button className="send" >{props.name}</button>
+        //             <br />
+        //         </>
+        //     );
+        // }
+        // function Msg(){
+        //     const msg=[{
+        //         message:'Hello bro',
+        //         sender:'user',
+        //         id:'id1'
+        //     },
+        //     {
+        //         message:'Welcome',
+        //         sender:'robot',
+        //         id:'id2'
+        //     },
+        //     {
+        //         message:'Right Now',
+        //         sender:'user',
+        //         id:'id3'
+        //     },
+        //     {
+        //         message:'Okay bro',
+        //         sender:'robot',
+        //         id:'id4'
+        //     },{
+        //         message:'Alright bro',
+        //         sender:'user',
+        //         id:'id5'
+        //     }];
+        //     return (
+        //         <div>
+        //             {msg.map((m,val)=>(
+        //                 <Cht key={val} name={m} />
+                        
+        //             ))}
+        //         </div>
+        //     );
+        // }
+        // const div = (
+        //     <>
+        //         <ChatInput />
+        //     </>
+        // );
+        const cont = document.querySelector(".cont");
+        ReactDOM.createRoot(cont).render(<App />);
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+.cart-btn {
+  width: 50px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#inp{
+    height: 20px; 
+    width: 300px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.send{
+    padding: 10px;
+    background-color: rgb(229, 229, 229);
+    border-radius: 5px;
+    border:none;
+    margin-bottom: 10px;
+}

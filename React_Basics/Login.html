@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="App.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="cont"></div>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script type="text/babel">
+        function App(){
+            return (
+                <>
+                    <p>Hello welcome to my website</p>
+                    <div>
+                        <input type="text" placeholder="email"/>
+                    </div>
+                    <br />
+                    <div>
+                        <input type="password" placeholder="password"/>  
+                    </div>
+                    <div>
+                        <button>Login</button> 
+                        <button>Signup</button>   
+                    </div>
+                </>
+            );
+        }
+        const cont = document.querySelector(".cont");
+        ReactDOM.createRoot(cont).render(<App />);
+    </script>
+</body>
+</html>
